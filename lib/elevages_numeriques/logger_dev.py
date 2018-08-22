@@ -23,11 +23,7 @@ class Logger():
             pass
         return exists
 
-    def log_line(self, file_name, line, newline=True):
-        
-        if not self.can_log():
-            print('Warning ! Switch is in the wrong position: logging may be disabled !')
-        
+    def log_line(self, file_name, line, newline=True):        
         try:
             with open('/{}'.format(file_name), "a") as fp:
                 fp.write(line)
@@ -37,6 +33,6 @@ class Logger():
                 
         except OSError as e:
             if e.args[0] == 28:
-                raise OSError('storage is probably full ')
+                print('Error : storage is probably full')
             elif e.args[0] == 30:
-                raise OSError('storage is probably read-only : check the switch')
+                print('Error : storage is probably read-only : check the switch')

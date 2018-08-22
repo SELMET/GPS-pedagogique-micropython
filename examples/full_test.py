@@ -28,7 +28,13 @@ while logs < 25:
     gps.update()
     led.brightness = logs / 25 # Slowly increase the brightness as you get more GPS points
     logger.log_line(file_name, str(gps))
-    logs = logs+1
+    logs = logs + 1
 
 led.color = WHITE
 led.brightness = 0.2
+time.sleep(3)
+
+# Finally, shutdown the LED if the switch is in LOG mode
+if logger.can_log():
+	led.brightness = 0
+	# led.color = OFF would do the same

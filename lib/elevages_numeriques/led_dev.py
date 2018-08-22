@@ -37,7 +37,6 @@ class Led(nonblocking_timer):
             print(" The LED may have already been created elsewhere")
             return None
         self._dot[0] = (r, g, b)
-    # end __init__ Led
     
     def static(self):
         self.stop()
