@@ -38,7 +38,8 @@ gps.set_logging('longitude', True)
 
 
 last_print = time.monotonic()
-while True:
+logs = 0
+while logs < 10:
     # Make sure to call gps.update() every loop iteration
     # This returns a bool that's true if it got new data
     gps.update()
@@ -56,3 +57,8 @@ while True:
         # Print out details about the fix like location, date, etc.
         print(gps.header)   # this prints the enabled fields names, CSV formatted
         print(gps)          # this prints the enabled fields content, CSV formatted
+        logs = logs + 1
+        
+# We got some lines from the GPS
+# Shut it down to save energy
+gps.disable() # gps.enable() to reactivate it

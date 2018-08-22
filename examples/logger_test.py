@@ -27,8 +27,13 @@ logger.log_line('structured.csv', "and;another;one")
 logger.log_line('GPS/position.csv', "2018-09-01 14:00:30;43.6168692;3.8585908")
 
 # Check is a file already exists
-if logger.file_exists('nonsense.test'): # try with logging.txt too !
+if logger.file_exists('i_dont_exist.test'): # says it doesn't exist
     print('file exists')
 else:
-    print('no such a file')
+    print('file does not exist')
+
+if logger.file_exists('boot_out.txt'): # says it does exist
+    print('file exists')
+else:
+    print('file does not exist')
     
