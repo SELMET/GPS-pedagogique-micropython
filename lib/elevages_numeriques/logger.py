@@ -1,8 +1,5 @@
 import board
 import digitalio
-import storage
- 
-
 
 class Logger():
     def __init__(self):
@@ -17,6 +14,15 @@ class Logger():
         """
         return not self._switch.value
         
+    def file_exists(self, file_name):
+        exists = False
+        try:
+            with open('/{}'.format(file_name), "r") as fp:
+                exists = True
+        except OSError as e:
+            pass
+        return exists
+
     def log_line(self, file_name, line, newline=True):
         
         if not self.can_log():
@@ -30,10 +36,7 @@ class Logger():
                 fp.flush()
                 
         except OSError as e:
-            delay = 0.5
             if e.args[0] == 28:
                 raise OSError('storage is probably full ')
             elif e.args[0] == 30:
                 raise OSError('storage is probably read-only : check the switch')
-        
-        

@@ -1,9 +1,6 @@
-
 import board
 import adafruit_dotstar
-import digitalio
 from nonblocking_timer import *
- 
 
 # Simple colors definition
 OFF = (0, 0, 0)
@@ -62,8 +59,7 @@ class Led(nonblocking_timer):
                 self._dot[0] = self._saved_color
             else:                
                 self._dot[0] = [0, 0, 0]
-            
-    
+
     def __deinit__(self):
         self._dot.deinit()
     
@@ -87,7 +83,7 @@ class Led(nonblocking_timer):
         self._dot.brightness = brightness
         self._dot.show()
         
-    def blink(self, color = None, period=0.5):
+    def blink(self, color=None, period=0.5):
         if color is not None:
             self.color = color
         self._saved_color = color
@@ -95,18 +91,3 @@ class Led(nonblocking_timer):
         self.set_interval(period)
         
         self.start()
-        
-    
-
-# end class Led
-
-
-"""
-_mode_switch = digitalio.DigitalInOut(board.D7)
-_mode_switch.direction = digitalio.Direction.INPUT
-_mode_switch.pull = digitalio.Pull.UP
-
-_internal = digitalio.DigitalInOut(board.D13)
-_internal.direction = digitalio.Direction.OUTPUT
-_internal.value = _mode_switch.value
-"""

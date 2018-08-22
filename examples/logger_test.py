@@ -12,7 +12,7 @@ if logger.can_log():
     print("Switch mode : Logging")
 else:
     print("Switch mode : USB, development only")
-
+    
 
 logger.log_line('logging.txt', "hello, ", newline=False)
 logger.log_line('logging.txt', "world ! (in one line only)")
@@ -23,3 +23,12 @@ logger.log_line('example.txt', "... using distinct lines")
 logger.log_line('structured.csv', "this;is;a;structured;line;using;CSV;formatting")
 logger.log_line('structured.csv', "and;another;one")
 
+# Write in a subfolder
+logger.log_line('GPS/position.csv', "2018-09-01 14:00:30;43.6168692;3.8585908")
+
+# Check is a file already exists
+if logger.file_exists('nonsense.test'): # try with logging.txt too !
+    print('file exists')
+else:
+    print('no such a file')
+    

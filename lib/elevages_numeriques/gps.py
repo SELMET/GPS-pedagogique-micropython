@@ -14,13 +14,13 @@ class Gps(adafruit_gps.GPS):
         """
         Enables or disables the logging output for the given field
         """
-        if field_name == '*' or field_name == 'all': # wildcard : enable or disable ALL fields
+        if field_name == '*' or field_name == 'all':  # wildcard : enable or disable ALL fields
             if enable:
-                self._fields = list()# .extend(Gps._KEYS[0:3])
+                self._fields = list()  # .extend(Gps._KEYS[0:3])
                 self._fields.extend(Gps._KEYS[0:len(Gps._KEYS)])
             else:
                 self._fields = list()
-            return None# all fields were added or deleted, stop here
+            return None  # all fields were added or deleted, stop here
         
         # One-by-one enabling or disabling field
         if not enable and field_name in self._fields:
@@ -36,9 +36,8 @@ class Gps(adafruit_gps.GPS):
         TX = board.TX
         uart = busio.UART(TX, RX, baudrate=9600, timeout=3000)
         super(Gps, self).__init__(uart, debug=False)
-        self._fields = list() # log 'datetime', 'latitude' and 'longitude' fields by default
+        self._fields = list()  # log 'datetime', 'latitude' and 'longitude' fields by default
         self._fields.extend(Gps._KEYS[0:3])
-        
         
     def timestamp_to_datetime(self):
         """
@@ -53,10 +52,8 @@ class Gps(adafruit_gps.GPS):
         Converts provided GPS speed (in knots) to standard Km/h 1
         """
         speed_knt = self.speed_knots
-        speed_kmh = speed_knt / 1852 # 1 knot == 1852 meter/hour
+        speed_kmh = speed_knt / 1852
         return speed_kmh
-
-    
 
     def __str__(self):
         content = list()
@@ -85,12 +82,3 @@ class Gps(adafruit_gps.GPS):
             content[i] = str(content[i])
 
         return ';'.join(content)
-        
-        """
-        return '{};{};{};{};{};{};{}'.format(
-            self.timestamp_to_datetime(), 
-            self.latitude, 
-            self.longitude, 
-            self.altitude_m, 
-            self.knots_to_kmh(),
-        """
