@@ -50,7 +50,7 @@ while logs < 10:
         last_print = current_time
         
         if not gps.has_fix: # if the GPS has a fix, it means it knows where it is
-            print('Waiting for fix... {} satellite(s) found'.format(gps.satellites))
+            print('Waiting for fix... {} satellite(s) found'.format(int(gps.satellites)))
             continue
         
         # We have a fix! (gps.has_fix is true)
@@ -58,7 +58,3 @@ while logs < 10:
         print(gps.header)   # this prints the enabled fields names, CSV formatted
         print(gps)          # this prints the enabled fields content, CSV formatted
         logs = logs + 1
-        
-# We got some lines from the GPS
-# Shut it down to save energy
-gps.disable() # gps.enable() to reactivate it

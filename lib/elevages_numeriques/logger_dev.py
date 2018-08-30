@@ -2,10 +2,11 @@ import board
 import digitalio
 
 class Logger():
-    def __init__(self):
+    def __init__(self, debug=False):
         self._switch = digitalio.DigitalInOut(board.D7)
         self._switch.direction = digitalio.Direction.INPUT
         self._switch.pull = digitalio.Pull.UP
+        self.debug = False
         
     def can_log(self):
         """
@@ -30,9 +31,12 @@ class Logger():
                 if newline and not line.endswith('\n'):
                     fp.write('\n')
                 fp.flush()
+                return True
                 
         except OSError as e:
-            if e.args[0] == 28:
-                print('Error : storage is probably full')
-            elif e.args[0] == 30:
-                print('Error : storage is probably read-only : check the switch')
+            if self.debug:                
+                if e.args[0] == 28:
+                    print('Error : storage is probably full')
+                elif e.args[0] == 30:
+                    print('Error : storage is probably read-only : check the switch')
+            return False

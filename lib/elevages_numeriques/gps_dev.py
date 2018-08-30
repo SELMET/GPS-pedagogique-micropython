@@ -33,13 +33,19 @@ class Gps(adafruit_gps.GPS):
             else:
                 self._fields.append(field_name)
 
-    def __init__(self):
+    def __init__(self, debug=False):
         uart = busio.UART(board.TX, board.RX, baudrate=9600, timeout=3000)
-        super(Gps, self).__init__(uart, debug=False)
+        super(Gps, self).__init__(uart, debug=debug)
         self._fields = list()
         self._fields.extend(Gps._KEYS[0:3])
         Gps._DIS_PIN.direction = digitalio.Direction.OUTPUT
         Gps._DIS_PIN.value = False
+
+    def update(self):
+        try:
+            return super(Gps, self).update()
+        except UnicodeError:
+            return False
 
 	def disable(self):
 		Gps._DIS_PIN.value = True
@@ -59,7 +65,10 @@ class Gps(adafruit_gps.GPS):
         """
         Converts provided GPS speed (in knots) to standard km/h
         """
-        return self.speed_knots / 1852
+        try:
+            return self.speed_knots / 1852
+        except TypeError:
+            return 0
 
     def __str__(self):
         content = list()

@@ -1,9 +1,12 @@
-from elevages_numeriques.led import *
-from elevages_numeriques.gps import *
-from elevages_numeriques.logger import *
-
+import time
 import gc       # These libraries are quite big for this small module
+from elevages_numeriques.led import *
 gc.collect()    # Ask the Garbage Collector (gc) to free some memory
+from elevages_numeriques.gps import *
+gc.collect()
+from elevages_numeriques.logger import *
+gc.collect()
+print("Free RAM : ", gc.mem_free(), 'bytes')
 
 led = Led()
 gps = Gps()
@@ -30,7 +33,9 @@ logs = 0
 while logs < 25: 
     gps.update()
     led.brightness = logs / 25 # Slowly increase the brightness as you get more GPS points
-    logger.log_line(file_name, str(gps))
+    written = logger.log_line(file_name, str(gps))
+    if not written:
+        print("couldn't write to storage")
     print('Log #{} : {}'.format(logs, str(gps)))
     logs = logs + 1
 
@@ -40,8 +45,8 @@ time.sleep(3)
 
 # Finally, shutdown the LED if the switch is in LOG mode
 # This helps saving energy, thus increasing the module's battery life
-if logger.can_log():
-	led.brightness = 0
-	# led.color = OFF would do the same
-
-gps.disable() # Remember to turn the GPS off when not in use to increase battery life
+while True:
+    if logger.can_log():
+        led.brightness = 0 # led.color = OFF would turn it off too
+    else:
+        led.brightness = 0.2

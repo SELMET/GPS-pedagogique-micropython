@@ -4,7 +4,7 @@ from elevages_numeriques.led import *
 led = Led() # Declare your LED
 
 # Available colors are :
-# RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, ORANGE, PURPLE, TEAL AND WHITE
+# RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, ORANGE, PURPLE, TEAL, WHITE AND OFF
 
 led.color = RED
 time.sleep(1)

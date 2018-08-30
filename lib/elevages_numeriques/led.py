@@ -1,6 +1,7 @@
 import board
 import adafruit_dotstar
 from nonblocking_timer import *
+from micropython import const
 
 # Simple colors definition
 OFF = (0, 0, 0)
