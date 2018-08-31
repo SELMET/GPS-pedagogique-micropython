@@ -18,7 +18,7 @@ This project depends on:
 
 * `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
 * `Adafruit CircuitPython GPS <https://github.com/adafruit/Adafruit_CircuitPython_GPS>`_
-* `mikepschneider's non-blocking timer https://github.com/mikepschneider/CircuitPython_nonblocking_timer>`_
+* `mikepschneider's non-blocking timer <https://github.com/mikepschneider/CircuitPython_nonblocking_timer>`_
 
 Please ensure all other dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
