@@ -1,3 +1,0 @@
-# GPS Pedagogique
-
-## Description : TODO
