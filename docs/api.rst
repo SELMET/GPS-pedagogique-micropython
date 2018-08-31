@@ -1,2 +1,2 @@
-.. automodule:: lib/elevages_numeriques/gps_dev
+.. automodule:: lib.elevages_numeriques.gps_dev
    :members:
