@@ -8,3 +8,10 @@ Table of Contents
     :hidden:
 
     self
+	
+.. toctree::
+    :caption: API Reference
+    :maxdepth: 3
+
+    api
+
