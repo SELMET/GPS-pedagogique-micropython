@@ -15,9 +15,9 @@ Table of Contents
 
     api
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+    :caption: Other Links
+
+    CircuitPython Reference Documentation <https://circuitpython.readthedocs.io>
+    CircuitPython Support Forum <https://forums.adafruit.com/viewforum.php?f=60>
