@@ -27,4 +27,4 @@ This is easily achieved by downloading
 Usage Example
 =============
 
-See the `examlpes <https://github.com/Wizehunt/GPS-pedagogique/tree/master/examples>`_ folder for mostly covering examples
+See the `examples <https://github.com/Wizehunt/GPS-pedagogique/tree/master/examples>`_ folder for mostly covering examples
