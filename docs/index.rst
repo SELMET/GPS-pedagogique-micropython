@@ -13,7 +13,9 @@ Table of Contents
     :caption: API Reference
     :maxdepth: 3
 
-    api
+    .. automodule:: elevages_numeriques.todoc
+        :members:
+
 
 
 .. toctree::
