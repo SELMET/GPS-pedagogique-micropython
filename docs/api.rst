@@ -1,2 +1,2 @@
-.. automodule:: lib.elevages_numeriques.led
+.. automodule:: elevages_numeriques.led
    :members:
