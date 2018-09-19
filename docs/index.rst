@@ -13,8 +13,7 @@ Table of Contents
     :caption: API Reference
     :maxdepth: 3
 
-    .. automodule:: elevages_numeriques.todoc
-        :members:
+    api
 
 
 
