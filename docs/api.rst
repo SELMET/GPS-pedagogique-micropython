@@ -1,2 +1,2 @@
-.. automodule:: elevages_numeriques
+.. autoclass:: gps_dev
    :members:
