@@ -2,6 +2,5 @@
 API Reference
 =============
 
-.. autoclass:: elevages_numeriques.Todoc
-    :undoc-members:
+.. automodule:: elevages_numeriques.led
     :members:
