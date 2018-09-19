@@ -1,2 +1,2 @@
-.. autoclass:: gps_dev
+.. autoclass:: Gps
    :members:
