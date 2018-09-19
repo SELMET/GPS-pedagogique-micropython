@@ -2,7 +2,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../lib/elevages_numeriques'))
 
 # -- General configuration ------------------------------------------------
 
@@ -24,3 +24,6 @@ source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
+
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'sphinx'
