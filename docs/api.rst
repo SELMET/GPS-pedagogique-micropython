@@ -1,2 +1,2 @@
-.. autoclass:: Gps
+.. automodule:: Gps
    :members:
