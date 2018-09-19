@@ -1,2 +1,2 @@
 .. automodule:: elevages_numeriques.todoc
-    :members:
+    :undoc-members:
