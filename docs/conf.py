@@ -34,5 +34,9 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
+# If true, '()' will be appended to :func: etc. cross-reference text.
+#
+add_function_parentheses = True
+
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
