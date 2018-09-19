@@ -30,7 +30,5 @@ class Todoc:
         if color is not None:
             self.color = color
         self._saved_color = color
-        
         self.set_interval(period)
-
         self.start()
