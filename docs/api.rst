@@ -1,7 +1,7 @@
 =============
 API Reference
 =============
-.. automodule:: elevages_numeriques.todoc
-    .. autoclass:: Todoc
+
+.. autoclass:: elevages_numeriques.Todoc
     :undoc-members:
     :members:
