@@ -1,2 +1,2 @@
-.. automodule:: Gps
+.. automodule:: Led
    :members:
