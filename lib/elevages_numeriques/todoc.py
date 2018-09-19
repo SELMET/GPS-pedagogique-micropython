@@ -11,11 +11,11 @@ class Todoc:
     """
     
     def blink(self, color=None, period=0.5):
-      """
-      Blinky thingy
-      """
-		if color is not None:
-			self.color = color
-		self._saved_color = color
-		self.set_interval(period)
-		self.start()
+        """
+        Blinky thingy
+        """
+        if color is not None:
+            self.color = color
+        self._saved_color = color
+        self.set_interval(period)
+        self.start()
