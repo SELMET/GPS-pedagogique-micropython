@@ -1,2 +1,2 @@
-.. autoclass:: elevages_numeriques.Todoc
+.. autoclass:: Todoc
    :members:
