@@ -1,2 +1,2 @@
-Adafruit-Blinka 
+Adafruit-Micropython-Blinka
 adafruit-circuitpython-busdevice
