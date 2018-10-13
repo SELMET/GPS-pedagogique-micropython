@@ -85,11 +85,16 @@ class Led(nonblocking_timer):
         
     @property
     def brightness(self):
-        """set brightness"""
+        """get brightness"""
         return self._dot.brightness
     
     @brightness.setter
     def brightness(self, brightness):
+        """
+        Set brightness
+        :param brightness:
+        :return:
+        """
         self._dot.brightness = brightness
         self._dot.show()
         
