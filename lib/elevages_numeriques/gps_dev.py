@@ -3,6 +3,7 @@ import busio
 import adafruit_gps
 import digitalio
 
+
 class Gps(adafruit_gps.GPS):
 
     _KEYS = ('datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
@@ -24,7 +25,7 @@ class Gps(adafruit_gps.GPS):
         content = list()
         for key in self._fields:
             if key == 'datetime':
-                content.append(self.timestamp_to_datetime())
+                content.append(self._timestamp_to_datetime())
             elif key == 'speed':
                 content.append(self.knots_to_kmh())
             elif key == 'altitude':
@@ -36,9 +37,17 @@ class Gps(adafruit_gps.GPS):
         return ';'.join(content)
 
     def enable(self, val=True):
-		Gps._DIS_PIN.value = not val
+        """
+        Enables or disables the GPS module to save energy
+        :param val: Enables the module if True, disables it otherwise
+        """
+        Gps._DIS_PIN.value = not val
 
     def update(self):
+        """
+        Fetches the latest data coming from the GPS module
+        Call this method at least once before reading a GPS position
+        """
         try:
             return super(Gps, self).update()
         except UnicodeError:
@@ -47,6 +56,8 @@ class Gps(adafruit_gps.GPS):
     def set_logging(self, field_name, enable):
         """
         Enables or disables the logging output for the given field
+        :param field_name:
+        :param enable:
         """
         if field_name == '*' or field_name == 'all':  # wildcard : enable or disable ALL fields
             if enable:
@@ -65,7 +76,7 @@ class Gps(adafruit_gps.GPS):
             else:
                 self._fields.append(field_name)
 
-    def timestamp_to_datetime(self):
+    def _timestamp_to_datetime(self):
         """
         Format a struct_time into human-readable datetime
         """
