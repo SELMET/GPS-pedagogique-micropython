@@ -15,7 +15,7 @@ PURPLE = (180, 0, 255)
 MAGENTA = (255, 0, 20)
 WHITE = (255, 255, 255)
 
-# class Led:
+
 class Led(nonblocking_timer):
     """
     Defines basic helpers to manage the internal RGB LED
@@ -23,7 +23,7 @@ class Led(nonblocking_timer):
     def __init__(self, brightness=0.2, r=0, g=0, b=0):
         super(Led, self).__init__(0.5)
         self._blink_state = False
-        
+
         try:
             self._dot = adafruit_dotstar.DotStar(
                 board.APA102_SCK, 
@@ -34,7 +34,7 @@ class Led(nonblocking_timer):
         except ValueError:
             print('Error initializing RGB LED')
             print(' The LED may have already been created elsewhere')
-            return None
+            return
         self._dot[0] = (r, g, b)
     
     def static(self):
