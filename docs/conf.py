@@ -17,7 +17,7 @@ extensions = [
     'sphinx.ext.viewcode',
 ]
 
-autodoc_mock_imports = ["board"]
+autodoc_mock_imports = ["board", "adafruit_dotstar"]
 
 intersphinx_mapping = {
 	'python': ('https://docs.python.org/3.4', None),
