@@ -17,8 +17,19 @@ WHITE = (255, 255, 255)
 
 
 class Led(nonblocking_timer):
-    """Defines basic helpers to manage the internal RGB LED"""
+    """
+        Defines basic helpers to manage the internal RGB LED
+    """
+
     def __init__(self, brightness=0.2, r=0, g=0, b=0):
+        """
+        Initialises the internal RGB Led
+        Do it only once per program
+        :param brightness: (0-1)
+        :param r: Red value (0-255)
+        :param g: Green value (0-255)
+        :param b: Blue  value (0-255)
+        """
         super(Led, self).__init__(0.5)
         self._blink_state = False
 
@@ -80,6 +91,12 @@ class Led(nonblocking_timer):
         self._dot.show()
         
     def blink(self, color=None, period=0.5):
+        """
+        Sets the internal LED to blinking mode
+        In blinking mode, you'll need to call run() regularly
+        :param color:
+        :param period:
+        """
         if color is not None:
             self.color = color
         self._saved_color = color
