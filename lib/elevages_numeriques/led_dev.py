@@ -18,7 +18,7 @@ WHITE = (255, 255, 255)
 
 class Led(nonblocking_timer):
     """
-    Defines basic helpers to manage the internal RGB LED
+        Defines basic helpers to manage the internal RGB LED
     """
     def __init__(self, brightness=0.2, r=0, g=0, b=0):
         super(Led, self).__init__(0.5)
