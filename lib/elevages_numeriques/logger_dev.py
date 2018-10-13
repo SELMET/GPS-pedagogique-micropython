@@ -2,7 +2,7 @@ import board
 import digitalio
 
 
-class Logger():
+class Logger:
     def __init__(self, debug=False):
         """
         Initialises the Logger object
@@ -15,8 +15,10 @@ class Logger():
         
     def can_log(self):
         """
-        If the switch reads LOW, the module can write to its internal storage and the computer can't
-        If the switch reads HIGH, the module can read its internal storage but can't write on it
+        Checks if the switch is in the LOG position
+
+        If it returns True, the module can write to its internal storage and the computer can't
+        If it returns False, the module can read its internal storage but can't write on it
         """
         return not self._switch.value
         
