@@ -7,3 +7,6 @@ API Reference : Led
 	
 .. autoclass:: elevages_numeriques.led_dev
 	:members:
+	
+.. autoclass:: Led
+:members:
