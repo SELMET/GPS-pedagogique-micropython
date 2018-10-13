@@ -1,22 +1,16 @@
 
 API Reference : Led
 --------------------
-
-#.. automodule:: elevages_numeriques.led_dev
-#    :members:
-	
-#.. autoclass:: elevages_numeriques.led_dev
-#	:members:
 	
 .. automodule:: Led
 	:members:
 
-.. automodule:: elevages_numeriques
+.. automodule:: led
 	:members:
 
 	
-.. automodule:: elevages_numeriques.led
+.. autoclass:: led
 	:members:
 
-.. autoclass:: elevages_numeriques.led
+.. autoclass:: Led
 	:members:
