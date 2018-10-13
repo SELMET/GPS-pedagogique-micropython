@@ -75,14 +75,17 @@ class Led(nonblocking_timer):
     
     @property
     def color(self):
+        """get current color"""
         return self._dot[0]
         
     @color.setter
     def color(self, color):
+        """set color"""
         self._dot[0] = color
         
     @property
     def brightness(self):
+        """set brightness"""
         return self._dot.brightness
     
     @brightness.setter
