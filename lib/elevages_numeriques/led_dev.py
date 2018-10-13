@@ -93,7 +93,6 @@ class Led(nonblocking_timer):
         """
         Set brightness
         :param brightness:
-        :return:
         """
         self._dot.brightness = brightness
         self._dot.show()
