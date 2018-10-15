@@ -13,7 +13,7 @@ if board_id == "raspi_3" or board_id == "raspi_2":
 elif board_id == "pyboard":
     from machine import Pin
 else:
-	from machine import Pin
+	from adafruit_blinka.microcontroller.raspi_23.pin import Pin
 from adafruit_blinka import Enum, ContextManaged
 
 class DriveMode(Enum):
