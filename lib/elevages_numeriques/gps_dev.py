@@ -7,7 +7,7 @@ import adafruit_gps
 class Gps(adafruit_gps.GPS):
 
     _KEYS = ('datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
-	_PORT =  board.D10
+    _PORT =  board.D10
     _DIS_PIN = digitalio.DigitalInOut(_PORT) # D10
 
     @property
