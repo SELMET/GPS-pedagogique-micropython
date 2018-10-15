@@ -50,7 +50,7 @@ class DigitalInOut(ContextManaged):
     _pin = None
 
     def __init__(self, pin):
-        self._pin = Pin(pin.id)
+        #self._pin = Pin(pin.id)
         self.direction = Direction.INPUT
 
     def switch_to_output(self, value=False, drive_mode=DriveMode.PUSH_PULL):
