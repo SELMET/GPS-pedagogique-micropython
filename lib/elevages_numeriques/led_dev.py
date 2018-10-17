@@ -63,6 +63,7 @@ class Led(nonblocking_timer):
     
     def static(self):
     """Sets the Led mode to 'static', to stop blinking"""
+	
         self.stop()
         self.color = self._saved_color
         
@@ -92,7 +93,10 @@ class Led(nonblocking_timer):
     
     @property
     def color(self):
-        """Returns the current color of the Led"""
+        """
+        Returns the current color of the Led
+        """
+
         return self._dot[0]
         
     @color.setter
