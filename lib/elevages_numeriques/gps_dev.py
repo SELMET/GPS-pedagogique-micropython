@@ -10,7 +10,7 @@ class Gps(adafruit_gps.GPS):
 	_PORT = None
 	try:
 		_PORT = board.D10
-	except NameError:
+	except Error:
 		_PORT = 10
 		pass
 
