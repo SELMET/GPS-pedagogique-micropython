@@ -62,7 +62,7 @@ class Led(nonblocking_timer):
         self._dot[0] = (r, g, b)
     
     def static(self):
-	"""Sets the Led mode to 'static', to stop blinking"""
+    """Sets the Led mode to 'static', to stop blinking"""
         self.stop()
         self.color = self._saved_color
         
@@ -71,7 +71,7 @@ class Led(nonblocking_timer):
         pass
         
     def run(self):
-	"""Runs the Led mode update, making it actually blink if Led mode is currently 'blinking' and not 'static'"""
+    """Runs the Led mode update, making it actually blink if Led mode is currently 'blinking' and not 'static'"""
         if self._status == nonblocking_timer._RUNNING:
             self.next()
     
@@ -98,14 +98,14 @@ class Led(nonblocking_timer):
     @color.setter
     def color(self, color):
         """Defines the color of the Led to the given value
-		
-		:param color: A predifined color constant such as RED, CYAN, PURPLE, etc.  
-		"""
+        
+        :param color: A predifined color constant such as RED, CYAN, PURPLE, etc.  
+        """
         self._dot[0] = color
         
     @property
     def brightness(self):
-	""" Returns the current Led brightness (ranges from 0.00 to 1.00) """
+    """ Returns the current Led brightness (ranges from 0.00 to 1.00) """
         return self._dot.brightness
     
     @brightness.setter
@@ -121,23 +121,23 @@ class Led(nonblocking_timer):
     def blink(self, color=None, period=0.5):
         """
         Sets the internal LED mode to 'blinking mode'
-		
+
         In blinking mode, you'll need to call run() regularly
-		You can set the brightness beforehand to blink with a specific brightness
+        You can set the brightness beforehand to blink with a specific brightness
         :param color: the color to use when blinking
         :param period: The period during the Led is either On or OFF
-		
-		Example usage:
+
+        Example usage:
 
         .. code-block:: python
             from elevages_numeriques.led import *
 
-			# Makes the Led blink in Blue
-			# The Led will turn on for 1.5 second, turn off for 1.5 second (and so on...) until led.static() is called
-			led = Led()
-			led.blink(BLUE, 1.5)
-			while(True):
-				led.run()
+            # Makes the Led blink in Blue
+            # The Led will turn on for 1.5 second, turn off for 1.5 second (and so on...) until led.static() is called
+            led = Led()
+            led.blink(BLUE, 1.5)
+            while(True):
+                led.run()
         """
 
         if color is not None:
