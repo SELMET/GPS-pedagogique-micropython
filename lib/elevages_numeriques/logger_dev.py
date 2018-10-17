@@ -11,7 +11,7 @@ import board
 import digitalio
 
 class Logger:
-	"""
+    """
     Initialises the Logger object
     :param bool debug:  Will print storage errors when enabled
     """
@@ -48,11 +48,11 @@ class Logger:
     def log_line(self, file_name, line, newline=True):
         """
         Writes a line to the internal storage
-		
+        
         :param file_name:
         :param sring line: the message to write
         :param bool newline: set to False to stay on the same line
-		:return bool: False if an error happened, True otherwise
+        :return bool: False if an error happened, True otherwise
         """
         try:
             with open('/{}'.format(file_name), "a") as fp:
