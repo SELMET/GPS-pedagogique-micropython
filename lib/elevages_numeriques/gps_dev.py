@@ -13,7 +13,7 @@ class Gps(adafruit_gps.GPS):
 	except NameError:
 		_PORT = 10
 		pass
-	
+
     _DIS_PIN = digitalio.DigitalInOut(_PORT) # D10
 
     @property
