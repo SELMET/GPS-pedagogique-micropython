@@ -93,9 +93,9 @@ class Led(nonblocking_timer):
     
     @property
     def color(self):
-        """
-        Returns the current color of the Led
-        """
+    """
+    Returns the current color of the Led 
+    """
 
         return self._dot[0]
         
