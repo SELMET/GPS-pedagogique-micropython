@@ -1,13 +1,21 @@
+"""
+`Logger`
+====================================================
+
+Logging utility to store  and keep messages 
+in the internal memory for later retrieval
+
+"""
+
 import board
 import digitalio
 
-
 class Logger:
+	"""
+    Initialises the Logger object
+    :param bool debug:  Will print storage errors when enabled
+    """
     def __init__(self, debug=False):
-        """
-        Initialises the Logger object
-        :param debug:  Will print storage errors when enabled
-        """
         self._switch = digitalio.DigitalInOut(board.D7)
         self._switch.direction = digitalio.Direction.INPUT
         self._switch.pull = digitalio.Pull.UP
@@ -26,8 +34,8 @@ class Logger:
         """
         Checks if a file exists
 
-        :param file_name: the file name to check
-        :return: True if the file exists, False otherwise
+        :param string file_name: the file name to check
+        :return bool: True if the file exists, False otherwise
         """
         exists = False
         try:
@@ -40,10 +48,11 @@ class Logger:
     def log_line(self, file_name, line, newline=True):
         """
         Writes a line to the internal storage
+		
         :param file_name:
-        :param line: the string to write
-        :param newline: set to False to stay remove the trailing carriage return
-        :return:
+        :param sring line: the message to write
+        :param bool newline: set to False to stay on the same line
+		:return bool: False if an error happened, True otherwise
         """
         try:
             with open('/{}'.format(file_name), "a") as fp:
