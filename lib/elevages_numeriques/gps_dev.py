@@ -5,16 +5,16 @@ import adafruit_gps
 
 
 class Gps(adafruit_gps.GPS):
+    _KEYS = (
+        'datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
+    _PORT = None
+    try:
+        _PORT = board.D10
+    except NameError:
+        _PORT = 10
+        pass
 
-    _KEYS = ('datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
-	_PORT = None
-	try:
-		_PORT = board.D10
-	except Error:
-		_PORT = 10
-		pass
-
-    _DIS_PIN = digitalio.DigitalInOut(_PORT) # D10
+    _DIS_PIN = digitalio.DigitalInOut(_PORT)  # D10
 
     @property
     def header(self):
@@ -88,13 +88,13 @@ class Gps(adafruit_gps.GPS):
         Format a struct_time into human-readable datetime
         """
         return '{}/{}/{} {}:{}:{}'.format(
-            self.timestamp_utc.tm_mday, 
-            self.timestamp_utc.tm_mon, 
-            self.timestamp_utc.tm_year, 
-            self.timestamp_utc.tm_hour, 
-            self.timestamp_utc.tm_min, 
+            self.timestamp_utc.tm_mday,
+            self.timestamp_utc.tm_mon,
+            self.timestamp_utc.tm_year,
+            self.timestamp_utc.tm_hour,
+            self.timestamp_utc.tm_min,
             self.timestamp_utc.tm_sec)
-        
+
     def knots_to_kmh(self):
         """
         Converts provided GPS speed (in knots) to standard km/h
