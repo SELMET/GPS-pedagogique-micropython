@@ -46,7 +46,7 @@ class Logger:
         Checks if a file exists
 
         :param string file_name: the file name to check
-        :return bool: True if the file exists, False otherwise
+        :return: True if the file exists, False otherwise
         """
         exists = False
         try:
@@ -63,7 +63,7 @@ class Logger:
         :param file_name:
         :param sring line: the message to write
         :param bool newline: set to False to stay on the same line
-        :return bool: False if an error happened, True otherwise
+        :return: False if an error happened, True otherwise
         """
         try:
             with open('/{}'.format(file_name), "a") as fp:
