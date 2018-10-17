@@ -21,6 +21,7 @@ class Gps(adafruit_gps.GPS):
         Example usage:
 
         .. code-block:: python
+        
             from elevages_numeriques.gps import *
 
             gps = Gps() # same as gps = Gps(debug=False)
@@ -41,8 +42,10 @@ class Gps(adafruit_gps.GPS):
 
     @property
     def header(self):
-	"""Returns the list of currently enabled GPS data fields in CSV format
-	:return string: A semicolon-separated list of the enabled fields"""
+        """
+        Returns the list of currently enabled GPS data fields in CSV format
+        :return string: A semicolon-separated list of the enabled fields
+        """
         return ';'.join(self._fields)
 
     def __init__(self, debug=False):
@@ -108,9 +111,9 @@ class Gps(adafruit_gps.GPS):
             self._fields.remove(field_name)
         elif enable and field_name not in self._fields:
             if field_name not in Gps._KEYS:
-				if self.debug;
-					print('unknown field {}'.format(field_name))
-					# raise RuntimeError('unknown field {}'.format(field_name))
+                if self.debug;
+                    print('unknown field {}'.format(field_name))
+                    # raise RuntimeError('unknown field {}'.format(field_name))
             else:
                 self._fields.append(field_name)
 
