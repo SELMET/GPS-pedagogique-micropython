@@ -1,3 +1,12 @@
+"""
+`GPS`
+====================================================
+
+GPS utilities module.  Can interact, control and read data from a GPS module,
+such as latitude, longitude, and more.
+
+"""
+
 import busio
 import digitalio
 import board
@@ -5,16 +14,16 @@ import adafruit_gps
 
 
 class Gps(adafruit_gps.GPS):
-    """Controls an SD card over SPI.
+    """Creates the Gps interface
 
-        :param boolean debug: print some errors if they occur , optionnal
+        :param boolean debug: print errors if they occur , optionnal
 
         Example usage:
 
         .. code-block:: python
             from elevages_numeriques.gps import *
 
-            gps = Gps()
+            gps = Gps() # same as gps = Gps(debug=False)
             gps.update()
             print(gps.header)
             print(gps)
@@ -24,16 +33,16 @@ class Gps(adafruit_gps.GPS):
     _KEYS = (
         'datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
 
-    _DIS_PIN = None
-    if hasattr(board, 'D10'):
+    _DIS_PIN = None # Sphinx autodoc will throw a NameError when trying to get board.D10
+    if hasattr(board, 'D10'): # Do that instead to allow compilation without the correct microcontroler
         _DIS_PIN = digitalio.DigitalInOut(board.D10)
     else:
         _DIS_PIN = 10
 
-
-
     @property
     def header(self):
+	"""Returns the list of currently enabled GPS data fields in CSV format
+	:return string: A semicolon-separated list of the enabled fields"""
         return ';'.join(self._fields)
 
     def __init__(self, debug=False):
@@ -50,7 +59,7 @@ class Gps(adafruit_gps.GPS):
             if key == 'datetime':
                 content.append(self._timestamp_to_datetime())
             elif key == 'speed':
-                content.append(self.knots_to_kmh())
+                content.append(self._knots_to_kmh())
             elif key == 'altitude':
                 content.append(self.altitude_m)
             else:
@@ -84,7 +93,7 @@ class Gps(adafruit_gps.GPS):
         Enables or disables the logging output for the given field
 
         :param field_name:
-        :param enable:
+        :param enable: Wether to enable or not the given field
         """
         if field_name == '*' or field_name == 'all':  # wildcard : enable or disable ALL fields
             if enable:
@@ -99,13 +108,15 @@ class Gps(adafruit_gps.GPS):
             self._fields.remove(field_name)
         elif enable and field_name not in self._fields:
             if field_name not in Gps._KEYS:
-                raise RuntimeError('unknown field {}'.format(field_name))
+				if self.debug;
+					print('unknown field {}'.format(field_name))
+					# raise RuntimeError('unknown field {}'.format(field_name))
             else:
                 self._fields.append(field_name)
 
     def _timestamp_to_datetime(self):
         """
-        Format a struct_time into human-readable datetime
+        Formats a struct_time into human-readable datetime
         """
         return '{}/{}/{} {}:{}:{}'.format(
             self.timestamp_utc.tm_mday,
@@ -115,10 +126,7 @@ class Gps(adafruit_gps.GPS):
             self.timestamp_utc.tm_min,
             self.timestamp_utc.tm_sec)
 
-    def knots_to_kmh(self):
-        """
-        Converts provided GPS speed (in knots) to standard km/h
-        """
+    def _knots_to_kmh(self):
         try:
             return self.speed_knots / 1852
         except TypeError:
