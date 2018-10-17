@@ -111,7 +111,7 @@ class Gps(adafruit_gps.GPS):
             self._fields.remove(field_name)
         elif enable and field_name not in self._fields:
             if field_name not in Gps._KEYS:
-                if self.debug;
+                if self.debug:
                     print('unknown field {}'.format(field_name))
                     # raise RuntimeError('unknown field {}'.format(field_name))
             else:
