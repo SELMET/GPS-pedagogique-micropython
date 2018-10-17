@@ -1,3 +1,10 @@
+"""
+`Led`
+====================================================
+
+Internal Red-Green-Blue utilities module.  Can control the built-in RGB LED in color and brightness
+"""
+
 import board
 import adafruit_dotstar
 from nonblocking_timer import *
@@ -20,17 +27,28 @@ class Led(nonblocking_timer):
     """
     Defines basic helpers to manage the internal RGB LED
     """
+	
+	"""Creates the RBG Led interface
+
+        :param float brightness: the Led brightness, (ranges from 0.00 to 1.00), optionnal
+		:param int r: the red   component value of the color, (ranges from 0 to 255), optionnal
+		:param int g: the green component value of the color, (ranges from 0 to 255), optionnal
+		:param int b: the blue  component value of the color, (ranges from 0 to 255), optionnal
+		
+
+        Example usage:
+
+        .. code-block:: python
+            from elevages_numeriques.led import *
+
+			led = Led() # The Led object can be created without arguments
+			# The available colors are :
+			# RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, ORANGE, PURPLE, TEAL, WHITE AND OFF
+			led.color = RED # Chosen color is red
+			led.brightness = 0.5 # Set brightness to 50%
+        """
 
     def __init__(self, brightness=0.2, r=0, g=0, b=0):
-        """
-        Initialises the internal RGB Led
-        Do it only once per program
-        :param brightness: (0-1)
-        :param r: Red value (0-255)
-        :param g: Green value (0-255)
-        :param b: Blue  value (0-255)
-        """
-
         super(Led, self).__init__(0.5)
         self._blink_state = False
 
@@ -48,6 +66,7 @@ class Led(nonblocking_timer):
         self._dot[0] = (r, g, b)
     
     def static(self):
+	"""Sets the Led mode to 'static', to stop blinking"""
         self.stop()
         self.color = self._saved_color
         
@@ -56,6 +75,7 @@ class Led(nonblocking_timer):
         pass
         
     def run(self):
+	"""Runs the Led mode update, making it actually blink if Led mode is currently 'blinking' and not 'static'"""
         if self._status == nonblocking_timer._RUNNING:
             self.next()
     
@@ -76,24 +96,27 @@ class Led(nonblocking_timer):
     
     @property
     def color(self):
-        """get current color"""
+        """Returns the current color of the Led"""
         return self._dot[0]
         
     @color.setter
     def color(self, color):
-        """set color"""
+        """Defines the color of the Led to the given value
+		
+		:param color: A predifined color constant such as RED, CYAN, PURPLE, etc.  
+		"""
         self._dot[0] = color
         
     @property
     def brightness(self):
-        """get brightness"""
+	""" Returns the current Led brightness (ranges from 0.00 to 1.00) """
         return self._dot.brightness
     
     @brightness.setter
     def brightness(self, brightness):
         """
-        Set brightness
-        :param brightness:
+        Sets the Led brightness
+        :param float brightness: The new brightness (ranges from 0.00 to 1.00)²
         """
 
         self._dot.brightness = brightness
@@ -101,10 +124,24 @@ class Led(nonblocking_timer):
         
     def blink(self, color=None, period=0.5):
         """
-        Sets the internal LED to blinking mode
+        Sets the internal LED mode to 'blinking mode'
+		
         In blinking mode, you'll need to call run() regularly
-        :param color:
-        :param period:
+		You can set the brightness beforehand to blink with a specific brightness
+        :param color: the color to use when blinking
+        :param period: The period during the Led is either On or OFF
+		
+		Example usage:
+
+        .. code-block:: python
+            from elevages_numeriques.led import *
+
+			# Makes the Led blink in Blue
+			# The Led will turn on for 1.5 second, turn off for 1.5 second (and so on...) until led.static() is called
+			led = Led()
+			led.blink(BLUE, 1.5)
+			while(True):
+				led.run()
         """
 
         if color is not None:
