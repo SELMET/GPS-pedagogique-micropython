@@ -44,7 +44,7 @@ class Gps(adafruit_gps.GPS):
     def header(self):
         """
         Property returning the list of currently enabled GPS data fields in CSV format
-        :return string: A semicolon-separated list of the enabled fields
+        :return: A semicolon-separated list of the enabled fields
         """
         return ';'.join(self._fields)
 
