@@ -7,7 +7,13 @@ import adafruit_gps
 class Gps(adafruit_gps.GPS):
 
     _KEYS = ('datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
-    _PORT = board.D10 if hasattr(board, 'D10') else 10
+	_PORT = None
+	try:
+		_PORT = board.D10
+	except NameError:
+		_PORT = 10
+		pass
+	
     _DIS_PIN = digitalio.DigitalInOut(_PORT) # D10
 
     @property
