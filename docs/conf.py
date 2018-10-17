@@ -19,6 +19,7 @@ extensions = [
 ]
 
 # autodoc_mock_imports = ["board", "adafruit_dotstar", "Pin", ]
+autodoc_mock_imports = ["adafruit_dotstar"]
 
 intersphinx_mapping = {
 	'python': ('https://docs.python.org/3.4', None),
