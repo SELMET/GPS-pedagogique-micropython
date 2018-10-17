@@ -95,8 +95,8 @@ class Gps(adafruit_gps.GPS):
         """
         Enables or disables the logging output for the given field
 
-        :param field_name:
-        :param enable: Wether to enable or not the given field
+        :param string field_name:
+        :param bool enable: Wether to enable or not the given field
         """
         if field_name == '*' or field_name == 'all':  # wildcard : enable or disable ALL fields
             if enable:
@@ -113,7 +113,7 @@ class Gps(adafruit_gps.GPS):
             if field_name not in Gps._KEYS:
                 if self.debug:
                     print('unknown field {}'.format(field_name))
-				raise RuntimeError('unknown field {}'.format(field_name))
+                raise RuntimeError('unknown field {}'.format(field_name))
             else:
                 self._fields.append(field_name)
 
