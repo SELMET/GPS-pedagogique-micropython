@@ -75,7 +75,7 @@ class Gps(adafruit_gps.GPS):
         """
         Enables or disables the GPS module to save energy
 
-        :param val: Enables the module if True, disables it otherwise
+        :param bool val: Enables the module if True, disables it otherwise
         """
         Gps._DIS_PIN.value = not val
 
@@ -84,7 +84,7 @@ class Gps(adafruit_gps.GPS):
         Fetches the latest data coming from the GPS module
 
         Call this method at least once before reading a GPS position
-        :return boolean: True if update succeeded, False if it failed
+        :return bool: True if update succeeded, False if it failed
         """
         try:
             return super(Gps, self).update()
