@@ -4,6 +4,7 @@ Led
 
 .. automodule:: led_dev
 	:members:
+	:exclude-members: next, stop
 	
 Logger
 --------------------
