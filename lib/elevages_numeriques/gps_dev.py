@@ -20,6 +20,7 @@ class Gps(adafruit_gps.GPS):
             print(gps)
 
         """
+
     _KEYS = (
         'datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
 
@@ -61,6 +62,7 @@ class Gps(adafruit_gps.GPS):
     def enable(self, val=True):
         """
         Enables or disables the GPS module to save energy
+
         :param val: Enables the module if True, disables it otherwise
         """
         Gps._DIS_PIN.value = not val
@@ -68,7 +70,9 @@ class Gps(adafruit_gps.GPS):
     def update(self):
         """
         Fetches the latest data coming from the GPS module
+
         Call this method at least once before reading a GPS position
+        :return boolean: True if update succeeded, False if it failed
         """
         try:
             return super(Gps, self).update()
@@ -78,6 +82,7 @@ class Gps(adafruit_gps.GPS):
     def set_logging(self, field_name, enable):
         """
         Enables or disables the logging output for the given field
+
         :param field_name:
         :param enable:
         """
