@@ -106,7 +106,7 @@ class Led(nonblocking_timer):
         :param color:
         :param period:
         """
-        
+
         if color is not None:
             self.color = color
         self._saved_color = color
