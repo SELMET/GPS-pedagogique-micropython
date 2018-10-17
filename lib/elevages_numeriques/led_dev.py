@@ -62,7 +62,9 @@ class Led(nonblocking_timer):
         self._dot[0] = (r, g, b)
     
     def static(self):
-    """Sets the Led mode to 'static', to stop blinking"""
+    """
+    Sets the Led mode to 'static', to stop blinking
+    """
 	
         self.stop()
         self.color = self._saved_color
@@ -72,7 +74,9 @@ class Led(nonblocking_timer):
         pass
         
     def run(self):
-    """Runs the Led mode update, making it actually blink if Led mode is currently 'blinking' and not 'static'"""
+    """
+    Runs the Led mode update, making it actually blink if Led mode is currently 'blinking' and not 'static'
+    """
         if self._status == nonblocking_timer._RUNNING:
             self.next()
     
