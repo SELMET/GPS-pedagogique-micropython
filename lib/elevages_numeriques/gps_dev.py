@@ -95,7 +95,7 @@ class Gps(adafruit_gps.GPS):
         """
         Enables or disables the logging output for the given field
 
-        :param string field_name:
+        :param string field_name: The field name, examples below
         :param bool enable: Wether to enable or not the given field
         
         Available fields:
