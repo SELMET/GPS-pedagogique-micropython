@@ -24,28 +24,24 @@ WHITE = (255, 255, 255)
 
 
 class Led(nonblocking_timer):
-    """
-    Defines basic helpers to manage the internal RGB LED
-    """
-	
-	"""Creates the RBG Led interface
+    """Creates the RBG Led interface
 
         :param float brightness: the Led brightness, (ranges from 0.00 to 1.00), optionnal
-		:param int r: the red   component value of the color, (ranges from 0 to 255), optionnal
-		:param int g: the green component value of the color, (ranges from 0 to 255), optionnal
-		:param int b: the blue  component value of the color, (ranges from 0 to 255), optionnal
-		
+        :param int r: the red   component value of the color, (ranges from 0 to 255), optionnal
+        :param int g: the green component value of the color, (ranges from 0 to 255), optionnal
+        :param int b: the blue  component value of the color, (ranges from 0 to 255), optionnal
+
 
         Example usage:
 
         .. code-block:: python
             from elevages_numeriques.led import *
 
-			led = Led() # The Led object can be created without arguments
-			# The available colors are :
-			# RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, ORANGE, PURPLE, TEAL, WHITE AND OFF
-			led.color = RED # Chosen color is red
-			led.brightness = 0.5 # Set brightness to 50%
+            led = Led() # The Led object can be created without arguments
+            # The available colors are :
+            # RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, ORANGE, PURPLE, TEAL, WHITE AND OFF
+            led.color = RED # Chosen color is red
+            led.brightness = 0.5 # Set brightness to 50%
         """
 
     def __init__(self, brightness=0.2, r=0, g=0, b=0):
