@@ -2,7 +2,8 @@
 `Led`
 ====================================================
 
-Internal Red-Green-Blue utilities module.  Can control the built-in RGB LED in color and brightness
+Internal Red-Green-Blue utilities module.
+Controls the built-in RGB LED in color and brightness
 """
 
 import board
