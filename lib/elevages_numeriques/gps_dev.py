@@ -44,6 +44,7 @@ class Gps(adafruit_gps.GPS):
     def header(self):
         """
         Property returning the list of currently enabled GPS data fields in CSV format
+        
         :return: A semicolon-separated list of the enabled fields
         """
         return ';'.join(self._fields)
@@ -83,7 +84,7 @@ class Gps(adafruit_gps.GPS):
         """
         Fetches the latest data coming from the GPS module
         Call this method at least once before reading a GPS position
-		
+        
         :return: True if update succeeded, False if it failed
         """
         try:
