@@ -123,7 +123,6 @@ class Led(nonblocking_timer):
         Returns the current Led brightness (ranges from 0.00 to 1.00) 
 		
 		.. code-block:: python
-		
             current_led_brightness = led.brightness
         """
         return self._dot.brightness
