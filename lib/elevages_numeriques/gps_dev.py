@@ -113,7 +113,7 @@ class Gps(adafruit_gps.GPS):
             if field_name not in Gps._KEYS:
                 if self.debug:
                     print('unknown field {}'.format(field_name))
-                    # raise RuntimeError('unknown field {}'.format(field_name))
+				raise RuntimeError('unknown field {}'.format(field_name))
             else:
                 self._fields.append(field_name)
 
