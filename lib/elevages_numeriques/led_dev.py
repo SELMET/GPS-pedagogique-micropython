@@ -74,9 +74,9 @@ class Led(nonblocking_timer):
         pass
         
     def run(self):
-    """
-    Runs the Led mode update, making it actually blink if Led mode is currently 'blinking' and not 'static'
-    """
+        """
+        Runs the Led mode update, making it actually blink if Led mode is currently 'blinking' and not 'static'
+        """
         if self._status == nonblocking_timer._RUNNING:
             self.next()
     
@@ -97,9 +97,9 @@ class Led(nonblocking_timer):
     
     @property
     def color(self):
-    """
-    Returns the current color of the Led 
-    """
+        """
+        Returns the current color of the Led 
+        """
 
         return self._dot[0]
         
@@ -113,7 +113,9 @@ class Led(nonblocking_timer):
         
     @property
     def brightness(self):
-    """ Returns the current Led brightness (ranges from 0.00 to 1.00) """
+        """ 
+        Returns the current Led brightness (ranges from 0.00 to 1.00) 
+        """
         return self._dot.brightness
     
     @brightness.setter
