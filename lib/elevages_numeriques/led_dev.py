@@ -100,7 +100,11 @@ class Led(nonblocking_timer):
     @property
     def color(self):
         """
-        Returns the current color of the Led 
+        Returns the current color of the Led
+		
+		.. code-block:: python
+		
+            current_led_color = led.color
         """
 
         return self._dot[0]
@@ -117,6 +121,10 @@ class Led(nonblocking_timer):
     def brightness(self):
         """ 
         Returns the current Led brightness (ranges from 0.00 to 1.00) 
+		
+		.. code-block:: python
+		
+            current_led_brightness = led.brightness
         """
         return self._dot.brightness
     

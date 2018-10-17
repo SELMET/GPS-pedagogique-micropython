@@ -13,8 +13,19 @@ import digitalio
 class Logger:
     """
     Initialises the Logger object
+
     :param bool debug:  Will print storage errors when enabled
+	
+	Example usage:
+
+        .. code-block:: python
+		
+            from elevages_numeriques.logger import *
+
+            logger = Logger()
+            logger.log_line('logging.txt', "Hello world !") 
     """
+	
     def __init__(self, debug=False):
         self._switch = digitalio.DigitalInOut(board.D7)
         self._switch.direction = digitalio.Direction.INPUT
