@@ -142,10 +142,9 @@ class Led(nonblocking_timer):
         .. code-block:: python
             from elevages_numeriques.led import *
 
-            # Makes the Led blink in Blue
-            # The Led will turn on for 1.5 second, turn off for 1.5 second (and so on...) until led.static() is called
-            led = Led()
-            led.blink(BLUE, 1.5)
+            led = Led() 
+            led.blink(BLUE, 1.5) # Makes the Led blink in Blue
+			# The Led will turn on for 1.5 second, turn off for 1.5 second (and so on...) until led.static() is called
             while(True):
                 led.run()
         """
