@@ -5,6 +5,21 @@ import adafruit_gps
 
 
 class Gps(adafruit_gps.GPS):
+    """Controls an SD card over SPI.
+
+        :param boolean debug: print some errors if they occur , optionnal
+
+        Example usage:
+
+        .. code-block:: python
+            from elevages_numeriques.gps import *
+
+            gps = Gps()
+            gps.update()
+            print(gps.header)
+            print(gps)
+
+        """
     _KEYS = (
         'datetime', 'latitude', 'longitude', 'altitude', 'speed', 'fix_quality', 'satellites', 'horizontal_dilution')
 

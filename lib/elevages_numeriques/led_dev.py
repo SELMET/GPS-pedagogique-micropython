@@ -60,10 +60,10 @@ class Led(nonblocking_timer):
             self.next()
     
     def next(self):
-        if (super(Led, self).next()):
+        if super(Led, self).next():
             self._blink_state = not self._blink_state
             
-            if(self._blink_state):
+            if self._blink_state:
                 self._dot[0] = self._saved_color
             else:                
                 self._dot[0] = [0, 0, 0]
