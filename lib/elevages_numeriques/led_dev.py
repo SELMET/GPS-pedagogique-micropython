@@ -30,6 +30,7 @@ class Led(nonblocking_timer):
         :param g: Green value (0-255)
         :param b: Blue  value (0-255)
         """
+
         super(Led, self).__init__(0.5)
         self._blink_state = False
 
@@ -94,6 +95,7 @@ class Led(nonblocking_timer):
         Set brightness
         :param brightness:
         """
+
         self._dot.brightness = brightness
         self._dot.show()
         
@@ -104,6 +106,7 @@ class Led(nonblocking_timer):
         :param color:
         :param period:
         """
+        
         if color is not None:
             self.color = color
         self._saved_color = color
