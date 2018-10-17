@@ -1,5 +1,5 @@
 """
-`GPS`
+`Gps`
 ====================================================
 
 GPS utilities module.  Can interact, control and read data from a GPS module,
