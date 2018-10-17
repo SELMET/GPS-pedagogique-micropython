@@ -43,7 +43,7 @@ class Gps(adafruit_gps.GPS):
     @property
     def header(self):
         """
-        Returns the list of currently enabled GPS data fields in CSV format
+        Property returning the list of currently enabled GPS data fields in CSV format
         :return string: A semicolon-separated list of the enabled fields
         """
         return ';'.join(self._fields)
@@ -82,9 +82,9 @@ class Gps(adafruit_gps.GPS):
     def update(self):
         """
         Fetches the latest data coming from the GPS module
-
         Call this method at least once before reading a GPS position
-        :return bool: True if update succeeded, False if it failed
+		
+        :return: True if update succeeded, False if it failed
         """
         try:
             return super(Gps, self).update()
@@ -102,7 +102,8 @@ class Gps(adafruit_gps.GPS):
 
         .. code-block:: python
         
-            'datetime' # Current date and time (formatted as 'day/month/year hour:min:sec'), in UTC time (Greenwich timezone)
+            'datetime' # Current date and time (formatted as 'day/month/year hour:min:sec')
+                       # In UTC time (that's Greenwich timezone)
             'latitude' # Current device latitude
             'longitude' # Current device longitude
             'altitude' # Current device altitude (in m)
