@@ -36,6 +36,7 @@ class Led(nonblocking_timer):
         Example usage:
 
         .. code-block:: python
+		
             from elevages_numeriques.led import *
 
             led = Led() # The Led object can be created without arguments
@@ -141,6 +142,7 @@ class Led(nonblocking_timer):
         Example usage:
 
         .. code-block:: python
+		
             from elevages_numeriques.led import *
 
             led = Led() 
