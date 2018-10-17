@@ -97,6 +97,26 @@ class Gps(adafruit_gps.GPS):
 
         :param string field_name:
         :param bool enable: Wether to enable or not the given field
+		
+		Available fields:
+
+        .. code-block:: python
+        
+            'datetime' # Current date and time (formatted as 'day/month/year hour:min:sec'), in UTC time (Greenwich timezone)
+			'latitude' # Current device latitude
+			'longitude' # Current device longitude
+			'altitude' # Current device altitude (in m)
+			'speed' # Current device speed (in km/h)
+			'fix_quality'	# Quality class of the positionning signal
+							# 0 = invalid
+							# 1 = Standard GPS fix
+							# 2 = Differential GPS fix (super precise)
+			'satellites' 	# Number of visible satellites, the more the better.
+							# GPS positionning is impossible below 3 satellites
+							
+			'horizontal_dilution' 	# How spread are the satellites in the sky ? The lower the better
+									# A high dilution can lead to imprecisions in the GPS signal
+			
         """
         if field_name == '*' or field_name == 'all':  # wildcard : enable or disable ALL fields
             if enable:
